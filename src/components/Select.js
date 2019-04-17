@@ -2,11 +2,11 @@ import React from 'react';
 import { css } from 'styled-components/macro';
 
 const styledSelectOption = css`
-  height: 300px;
+  height: 450px;
   width: 300px;
   cursor: pointer;
   transition: ${props => props.theme.transition};
-  border: 2px solid ${props => props.theme.errorColor};
+  /* border: 2px solid ${props => props.theme.errorColor}; */
   padding: 1rem;
 
   img {
@@ -19,11 +19,15 @@ const gallery = css`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  max-height: 100%;
+  overflow: auto;
 `;
 
 const imageBorder = css`
-  background: ${({ theme }) => theme.primaryColor};
+  /* background: ${({ theme }) => theme.primaryColor}; */
   padding: 2px;
+  height: 100%;
+  width: 100%;
 `;
 
 const SelectOption = ({ src, option, onSelect, isActive, color = 'blue' }) => (

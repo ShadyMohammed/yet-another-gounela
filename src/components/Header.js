@@ -49,10 +49,14 @@ const headerCta = css`
   grid-area: main-start / header-cta-start / main-end / header-cta-end;
   justify-self: center;
   align-self: center;
+
+  h1 {
+    margin-bottom: 10rem;
+  }
 `;
 
 const headerImage = css`
-  grid-area: row-start / header-image-start / row-end / header-image-end;
+  grid-area: row-start / header-image-start / row-end / end;
   background: #fff;
 
   .imageWrapper {
