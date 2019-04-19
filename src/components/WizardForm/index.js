@@ -12,7 +12,7 @@ import ClothesCategoriesStep from './components/ClothesCategoriesStep';
 import TextureStep from './components/TextureStep';
 
 const styledForm = css`
-  height: 100vh;
+  min-height: 100vh;
   background: ${props => props.theme.formBackground};
   position: relative;
 `;
@@ -21,9 +21,9 @@ const initialValues = {
   height: '',
   weight: '',
 
-  // clothesType: '',
-  // design: '',
-  // texture: '',
+  clothesType: '',
+  design: '',
+  texture: '',
 
   name: '',
   email: '',
@@ -37,35 +37,35 @@ const initialValues = {
 
 const validationSchema = Yup.object({
   height: Yup.number()
-    .positive('من فضلك أدخلي قيمة صحيحة للطول')
-    .required('من فضلك أدخلي طولك'),
+    .positive('من فضلك دخلي قيمة صحيحة للطول')
+    .required('من فضلك دخلي طولك'),
   weight: Yup.number()
-    .positive('من فضلك أدخلي قيمة صحيحة للوزن')
-    .required('من فضلك أدخلي وزنك'),
+    .positive('من فضلك دخلي قيمة صحيحة للوزن')
+    .required('من فضلك دخلي وزنك'),
 
-  name: Yup.string().required('من فضلك أدخلي إسمك'),
+  name: Yup.string().required('من فضلك دخلي إسمك'),
   email: Yup.string()
-    .required('من فضلك أدخلي ايميلك')
-    .email('من فضلك أدخلي ايميل صحيح'),
+    .required('من فضلك دخلي ايميلك')
+    .email('من فضلك دخلي ايميل صحيح'),
   phone: Yup.string()
-    .length(11, 'من فضلك أدخلي رقم هاتف صحيح')
-    .required('من فضلك أدخلي رقم الهاتف'),
-  governorate: Yup.string().required('من فضلك أدخلي المحافظة'),
-  city: Yup.string().required('من فضلك أدخلي المنطقة'),
-  street: Yup.string().required('من فضلك أدخلي اسم الشارع'),
+    .length(11, 'من فضلك دخلي رقم هاتف صحيح')
+    .required('من فضلك دخلي رقم الهاتف'),
+  governorate: Yup.string().required('من فضلك دخلي المحافظة'),
+  city: Yup.string().required('من فضلك دخلي المنطقة'),
+  street: Yup.string().required('من فضلك دخلي اسم الشارع'),
   building: Yup.number()
-    .positive('من فضلك أدخلي رقم مبنى صحيح')
-    .required('من فضلك أدخلي رقم المبنى'),
+    .positive('من فضلك دخلي رقم مبنى صحيح')
+    .required('من فضلك دخلي رقم المبنى'),
   floor: Yup.number()
-    .positive('من فضلك أدخلي رقم شقة صحيح')
-    .required('من فضلك أدخلي رقم الشقة')
+    .positive('من فضلك دخلي رقم شقة صحيح')
+    .required('من فضلك دخلي رقم الشقة')
 });
 
 const pages = [
-  MeasurementsStep,
   ClothesCategoriesStep,
   DesignStep,
   TextureStep,
+  MeasurementsStep,
   AddressStep
 ];
 

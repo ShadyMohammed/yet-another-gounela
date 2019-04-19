@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import StepLayout from './StepLayout';
-import Select from '../../Select';
+import Gallery from '../../Gallery';
 
 import { chooseDesign } from '../../../redux/actions';
 
@@ -29,8 +29,8 @@ const DesignStep = ({
       goPrevious={goPrevious}
       isValidStep={isValidStep}
     >
-      <Select
-        selectOptions={clothesCategories[clothesCategories.clothesCategory]}
+      <Gallery
+        items={clothesCategories[clothesCategories.clothesCategory]}
         onSelect={({ id }) => chooseDesign(id)}
       />
     </StepLayout>

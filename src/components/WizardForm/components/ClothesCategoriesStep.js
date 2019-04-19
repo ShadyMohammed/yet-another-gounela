@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import StepLayout from './StepLayout';
-import Select from '../../Select';
+import Gallery from '../../Gallery';
 import { clothesCategories } from '../../../designs';
 
 import { chooseClothesCategory } from '../../../redux/actions';
@@ -27,8 +27,8 @@ const ClothesCategoriesStep = ({
       goPrevious={goPrevious}
       isValidStep={isValidStep}
     >
-      <Select
-        selectOptions={clothesCategories}
+      <Gallery
+        items={clothesCategories}
         onSelect={({ name }) => chooseClothesCategory(name)}
       />
     </StepLayout>

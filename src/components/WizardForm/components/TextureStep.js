@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Select from '../../Select';
+import Gallery from '../../Gallery';
 import StepLayout from './StepLayout';
 import { chooseFabric } from '../../../redux/actions';
 
@@ -27,7 +27,7 @@ const TextureStep = ({
       goPrevious={goPrevious}
       isValidStep={isValidStep}
     >
-      <Select selectOptions={fabrics} onSelect={({ id }) => chooseFabric(id)} />
+      <Gallery items={fabrics} onSelect={({ id }) => chooseFabric(id)} />
     </StepLayout>
   );
 };

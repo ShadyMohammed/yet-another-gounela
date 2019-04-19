@@ -52,6 +52,7 @@ const headerCta = css`
 
   h1 {
     margin-bottom: 10rem;
+    line-height: 1.5;
   }
 `;
 
@@ -114,7 +115,7 @@ const Header = () => {
           ))}
         </div>
         <div css={headerCta}>
-          <h1>دلوقتي تقدري تفصلي لبسك من البيت</h1>
+          <h1>دلوقتي تقدري تفصلي لبسك ويوصلك لحد البيت</h1>
           <Link to="form" smooth duration={500}>
             <Button>جربي دلوقتي!</Button>
           </Link>
