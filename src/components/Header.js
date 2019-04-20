@@ -62,7 +62,7 @@ const headerCta = css`
   align-items: center;
 
   h1 {
-    margin-bottom: 10rem;
+    margin-bottom: 10em;
     line-height: 1.5;
   }
 `;
