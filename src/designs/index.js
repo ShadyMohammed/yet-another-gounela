@@ -11,16 +11,19 @@ export const clothesCategories = [
   {
     id: generate(),
     name: 'blouses',
-    image: blouse
+    image: blouse,
+    isActive: false
   },
   {
     id: generate(),
     name: 'dresses',
-    image: dress
+    image: dress,
+    isActive: false
   },
   {
     id: generate(),
     name: 'skirts',
-    image: skirt
+    image: skirt,
+    isActive: false
   }
 ];
