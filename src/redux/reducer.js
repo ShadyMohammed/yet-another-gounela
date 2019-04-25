@@ -10,7 +10,7 @@ import { images } from '../designs';
 const { dresses, skirts, blouses } = images;
 
 export const formState = {
-  clothesCategory: '',
+  clothesCategory: 'skirts',
   dresses: dresses.map(dress => ({
     ...dress,
     id: generate(),
@@ -33,8 +33,8 @@ export const formState = {
 
 const formReducer = (state = formState, action) => {
   switch (action.type) {
-    case CHOOSE_CLOTHES_CATEGORY:
-      return { ...state, clothesCategory: action.category };
+    // case CHOOSE_CLOTHES_CATEGORY:
+    //   return { ...state, clothesCategory: action.category };
 
     case CHOOSE_DESIGN:
       return {

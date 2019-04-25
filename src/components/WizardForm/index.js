@@ -8,7 +8,7 @@ import * as Yup from 'yup';
 import MeasurementsStep from './components/MeasurementsStep';
 import DesignStep from './components/DesignStep';
 import AddressStep from './components/AddressStep';
-import ClothesCategoriesStep from './components/ClothesCategoriesStep';
+// import ClothesCategoriesStep from './components/ClothesCategoriesStep';
 import TextureStep from './components/TextureStep';
 
 const styledForm = css`
@@ -21,7 +21,7 @@ const initialValues = {
   height: '',
   weight: '',
 
-  clothesType: '',
+  // clothesType: '',
   design: '',
   texture: '',
 
@@ -62,7 +62,7 @@ const validationSchema = Yup.object({
 });
 
 const pages = [
-  ClothesCategoriesStep,
+  // ClothesCategoriesStep,
   DesignStep,
   TextureStep,
   MeasurementsStep,
