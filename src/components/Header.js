@@ -111,7 +111,7 @@ const headerImage = css`
   grid-area: hero-row-start / hero-col-center / hero-row-end / hero-col-end;
   background: url(${headerImg});
   background-size: cover;
-  background-position-y: -170px;
+  background-position-y: -100px;
   display: flex;
 
   @media screen and (max-width: 1570px) {

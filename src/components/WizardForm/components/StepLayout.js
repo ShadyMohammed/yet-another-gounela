@@ -9,18 +9,28 @@ const stepLayout = css`
   justify-content: space-between;
   align-items: center;
   padding: 5%;
-  height: 100%;
+  min-height: 100vh;
 `;
 
 const styledTitle = css`
   color: rgba(0, 0, 0, 0.7);
   font-size: 2.5rem;
+  margin-bottom: 5%;
 `;
 
 const formActions = css`
   width: 100%;
   display: flex;
   justify-content: space-around;
+
+  @media screen and (max-width: 450px) {
+    flex-direction: column;
+    padding: 3rem;
+
+    button:first-of-type {
+      margin-bottom: 1.5rem;
+    }
+  }
 `;
 
 const StepLayout = ({

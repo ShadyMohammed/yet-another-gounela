@@ -3,6 +3,9 @@ import { css } from 'styled-components/macro';
 import { Field, ErrorMessage } from 'formik';
 
 const formFieldStyle = css`
+  flex-grow: 1;
+  min-width: 40%;
+
   display: flex;
   flex-direction: column;
   margin: 1rem;
