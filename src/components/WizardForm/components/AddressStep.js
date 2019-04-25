@@ -6,10 +6,14 @@ import FormField from './FormField';
 import StepLayout from './StepLayout';
 
 const fieldsWrapper = css`
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   width: 80%;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 const AddressStep = ({

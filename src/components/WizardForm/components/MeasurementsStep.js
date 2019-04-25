@@ -7,6 +7,7 @@ import FormField from './FormField';
 const inputWrapper = css`
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 `;
 
 const MeasurementsStep = ({
