@@ -3,11 +3,12 @@ import { css } from 'styled-components/macro';
 import { Link } from 'react-scroll';
 import Button from './Button';
 import Icon from './Icon';
+import headerImg from '../designs/header.jpg';
 
 const header = css`
   display: grid;
   grid-template-rows: [header-nav-row-start] 80px [header-nav-row-end] 20px [header-hero-row-start] 1fr [header-hero-row-end] 80px [header-row-end];
-  grid-template-columns: [header-col-start] 80px [header-hero-col-start] 1fr [header-hero-col-end] 80px [header-col-end];
+  grid-template-columns: [header-col-start] 5% [header-hero-col-start] 1fr [header-hero-col-end] 5% [header-col-end];
   height: 100vh;
   background-image: ${props => props.theme.headerBackground};
 `;
@@ -31,7 +32,12 @@ const hero = css`
 
   display: grid;
   grid-template-rows: [hero-row-start] 20px [hero-sec-row-start] 1fr [hero-sec-row-end] 20px [hero-row-end];
-  grid-template-columns: [hero-col-start] 1fr [hero-col-center] 1fr [hero-col-end];
+  grid-template-columns: [hero-col-start] 1.25fr [hero-col-center] 1fr [hero-col-end];
+
+  @media screen and (max-width: 950px) {
+    grid-template-rows: 1fr;
+    grid-template-columns: [hero-col-start] 1fr [hero-col-center] 1fr [hero-col-end];
+  }
 `;
 
 const heroMain = css`
@@ -39,7 +45,19 @@ const heroMain = css`
   background: ${({ theme }) => theme.formBackground};
   display: grid;
   grid-template-rows: [heroMain-row-start] repeat(3, 1fr) [heroMain-row-end];
-  grid-template-columns: [heroMain-social-col-start] 100px [heroMain-social-col-end] 25px [heroMain-cta-col-start] 1fr [heroMain-cta-col-end];
+  grid-template-columns: [heroMain-social-col-start] 10% [heroMain-social-col-end heroMain-cta-col-start] 1fr [heroMain-cta-col-end] 10%;
+
+  @media screen and (max-width: 950px) {
+    grid-column: hero-col-start/ hero-col-end;
+    grid-row: 1/2;
+    background: linear-gradient(
+        19deg,
+        rgba(250, 172, 168, 0.6) 0%,
+        rgba(221, 214, 243, 0.6) 100%
+      ),
+      url(${headerImg});
+    background-size: cover;
+  }
 `;
 
 const socialMedia = css`
@@ -51,36 +69,59 @@ const socialMedia = css`
   justify-content: flex-end;
   align-items: center;
   padding-bottom: 2rem;
+  min-width: 100px;
 `;
 
 const headerCta = css`
   grid-area: heroMain-row-start / heroMain-cta-col-start / heroMain-row-end /
     heroMain-cta-col-end;
   align-self: center;
+  justify-self: center;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   h1 {
-    margin-bottom: 10rem;
-    line-height: 1.5;
+    margin-bottom: 20%;
+    font-size: 2.2rem;
+    line-height: 2;
+    text-align: center;
+
+    @media screen and (max-width: 1300px) {
+      font-size: 2rem;
+    }
+
+    @media screen and (max-width: 1200px) {
+      font-size: 1.8rem;
+    }
+
+    @media screen and (max-width: 950px) {
+      color: #fff;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
   }
+`;
+
+const ctaButton = css`
+  display: inline-block;
+  margin-bottom: 15%;
 `;
 
 const headerImage = css`
   grid-area: hero-row-start / hero-col-center / hero-row-end / hero-col-end;
-  background: #fff;
+  background: url(${headerImg});
+  background-size: cover;
+  background-position-y: -170px;
   display: flex;
 
-  .imageWrapper {
-    padding: 50px;
-    width: 100%;
-    height: 100%;
+  @media screen and (max-width: 1570px) {
+    background-position-y: 0px;
   }
 
-  img {
-    height: 100%;
-    width: 100%;
+  @media screen and (max-width: 950px) {
+    /* grid-area: hero-row-start / hero-col-start / hero-sec-row-end 1 /
+      hero-col-center; */
+    display: none;
   }
 `;
 
@@ -130,15 +171,11 @@ const Header = () => {
           <div css={headerCta}>
             <h1>دلوقتي تقدري تفصلي لبسك ويوصلك لحد البيت</h1>
             <Link to="form" smooth duration={500}>
-              <Button>جربي دلوقتي!</Button>
+              <Button css={ctaButton}>جربي دلوقتي!</Button>
             </Link>
           </div>
         </div>
-        <div css={headerImage}>
-          <div className="imageWrapper">
-            <img src="http://lorempixel.com/640/480/fashion" alt="Gounela" />
-          </div>
-        </div>
+        <div css={headerImage} />
       </section>
     </header>
   );
