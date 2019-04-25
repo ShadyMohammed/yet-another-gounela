@@ -124,7 +124,6 @@ const WizardForm = () => {
         errors,
         status,
         touched,
-        dirty,
         isSubmitting,
         setFieldValue,
         handleChange
@@ -138,7 +137,6 @@ const WizardForm = () => {
                   <RenderedComponent
                     setFieldValue={setFieldValue}
                     touched={touched}
-                    dirty={dirty}
                     errors={errors}
                     handleChange={handleChange}
                     key={key}

@@ -14,7 +14,8 @@ const ClothesCategoriesStep = ({
   pageNum,
   pagesLength,
   goNext,
-  goPrevious
+  goPrevious,
+  setFieldValue
 }) => {
   const isValidStep = clothesCategory;
   return (
@@ -29,7 +30,10 @@ const ClothesCategoriesStep = ({
     >
       <Gallery
         items={clothesCategories}
-        onSelect={({ name }) => chooseClothesCategory(name)}
+        onSelect={({ name }) => {
+          setFieldValue('clothesType', name);
+          chooseClothesCategory(name);
+        }}
       />
     </StepLayout>
   );

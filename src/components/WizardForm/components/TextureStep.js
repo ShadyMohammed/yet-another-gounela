@@ -11,7 +11,8 @@ const TextureStep = ({
   pagesLength,
   pageNum,
   goPrevious,
-  goNext
+  goNext,
+  setFieldValue
 }) => {
   const fabrics = form[form.clothesCategory].find(design => design.isActive)
     .fabrics;
@@ -27,7 +28,13 @@ const TextureStep = ({
       goPrevious={goPrevious}
       isValidStep={isValidStep}
     >
-      <Gallery items={fabrics} onSelect={({ id }) => chooseFabric(id)} />
+      <Gallery
+        items={fabrics}
+        onSelect={({ id, name }) => {
+          chooseFabric(id);
+          setFieldValue('texture', name);
+        }}
+      />
     </StepLayout>
   );
 };
