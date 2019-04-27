@@ -29,19 +29,11 @@ const AddressStep = ({
     touched.name &&
     touched.email &&
     touched.phone &&
-    touched.governorate &&
-    touched.city &&
-    touched.street &&
-    touched.building &&
-    touched.floor &&
+    touched.address &&
     !errors.name &&
     !errors.email &&
     !errors.phone &&
-    !errors.governorate &&
-    !errors.city &&
-    !errors.street &&
-    !errors.building &&
-    !errors.floor;
+    !errors.address;
 
   return (
     <StepLayout
@@ -61,21 +53,7 @@ const AddressStep = ({
           component={InputField}
         />
         <FormField name="phone" label="الموبايل" component={InputField} />
-        <FormField name="governorate" label="المحافظة" component={InputField} />
-        <FormField name="city" label="المدينة" component={InputField} />
-        <FormField name="street" label="الشارع" component={InputField} />
-        <FormField
-          name="building"
-          label="رقم المبنى"
-          type="number"
-          component={InputField}
-        />
-        <FormField
-          name="floor"
-          label="الدور"
-          type="number"
-          component={InputField}
-        />
+        <FormField name="address" label="العنوان" component={InputField} />
       </div>
     </StepLayout>
   );

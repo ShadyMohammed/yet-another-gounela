@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { Formik, Form } from 'formik';
 import { useTransition } from 'react-spring';
 import { Element as ScrollElement } from 'react-scroll';
@@ -10,6 +11,8 @@ import DesignStep from './components/DesignStep';
 import AddressStep from './components/AddressStep';
 import ClothesCategoriesStep from './components/ClothesCategoriesStep';
 import TextureStep from './components/TextureStep';
+import ConfirmationStep from './components/ConfirmationStep';
+import { resetOrderFormReducer } from '../../redux/actions';
 
 const styledForm = css`
   min-height: 100vh;
@@ -28,11 +31,7 @@ const initialValues = {
   name: '',
   email: '',
   phone: '',
-  governorate: '',
-  city: '',
-  street: '',
-  building: '',
-  floor: ''
+  address: ''
 };
 
 const validationSchema = Yup.object({
@@ -44,21 +43,11 @@ const validationSchema = Yup.object({
     .required('من فضلك دخلي وزنك'),
 
   name: Yup.string().required('من فضلك دخلي إسمك'),
-  email: Yup.string()
-    .required('من فضلك دخلي ايميلك')
-    .email('من فضلك دخلي ايميل صحيح'),
+  email: Yup.string().email('من فضلك دخلي ايميل صحيح'),
   phone: Yup.string()
     .length(11, 'من فضلك دخلي رقم هاتف صحيح')
     .required('من فضلك دخلي رقم الهاتف'),
-  governorate: Yup.string().required('من فضلك دخلي المحافظة'),
-  city: Yup.string().required('من فضلك دخلي المنطقة'),
-  street: Yup.string().required('من فضلك دخلي اسم الشارع'),
-  building: Yup.number()
-    .positive('من فضلك دخلي رقم مبنى صحيح')
-    .required('من فضلك دخلي رقم المبنى'),
-  floor: Yup.number()
-    .positive('من فضلك دخلي رقم شقة صحيح')
-    .required('من فضلك دخلي رقم الشقة')
+  address: Yup.string().required('من فضلك دخلي العنوان')
 });
 
 const pages = [
@@ -66,7 +55,8 @@ const pages = [
   DesignStep,
   TextureStep,
   MeasurementsStep,
-  AddressStep
+  AddressStep,
+  ConfirmationStep
 ];
 
 const encode = data => {
@@ -75,24 +65,15 @@ const encode = data => {
     .join('&');
 };
 
-const handleSubmit = (values, actions) => {
-  fetch('/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: encode({ 'form-name': 'order', ...values })
-  })
-    .then(() => {
-      actions.resetForm(initialValues);
-      alert('Success!');
-    })
-    .catch(error => alert(error));
-};
-
-const WizardForm = () => {
+const WizardForm = ({ resetOrderFormReducer }) => {
   const [pageNum, setPageNum] = useState(0);
 
   const goNext = () => setPageNum(pageNum + 1);
   const goPrevious = () => setPageNum(pageNum - 1);
+  const goToFirstStep = () => {
+    setPageNum(0);
+    resetOrderFormReducer();
+  };
 
   const transitions = useTransition(pageNum, p => p, {
     from: {
@@ -114,6 +95,19 @@ const WizardForm = () => {
       position: 'absolute'
     }
   });
+
+  const handleSubmit = (values, actions) => {
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'order', ...values })
+    })
+      .then(() => {
+        setPageNum(pageNum + 1);
+        actions.resetForm(initialValues);
+      })
+      .catch(error => alert(error));
+  };
 
   return (
     <Formik
@@ -143,6 +137,7 @@ const WizardForm = () => {
                     style={props}
                     pageNum={pageNum}
                     pagesLength={pages.length}
+                    goToFirstStep={goToFirstStep}
                     goNext={goNext}
                     goPrevious={goPrevious}
                   />
@@ -156,4 +151,11 @@ const WizardForm = () => {
   );
 };
 
-export default WizardForm;
+const mapDispatchToProps = {
+  resetOrderFormReducer
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(WizardForm);

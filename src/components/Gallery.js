@@ -51,12 +51,12 @@ const gallery = css`
   overflow: auto;
 `;
 
-const GalleryItem = ({ src, option, onSelect, isActive, color }) => (
+const GalleryItem = ({ option, onSelect, isActive }) => (
   <div css={decWrapper}>
     <div
       css={styledGalleryItem}
       isActive={isActive}
-      onClick={() => onSelect(option)}
+      onClick={onSelect && (() => onSelect(option))}
     >
       <img src={option.image} alt={option.name} />
     </div>
@@ -72,7 +72,6 @@ const Gallery = ({ items, onSelect }) => (
         option={item}
         isActive={item.isActive}
         onSelect={onSelect}
-        color="pink"
       />
     ))}
   </div>
