@@ -19,7 +19,7 @@ const MeasurementsStep = ({
   goNext,
   goPrevious,
   pageNum,
-  pageLength
+  pagesLength
 }) => {
   const isValidStep =
     touched.height && touched.weight && !errors.height && !errors.weight;
@@ -32,7 +32,7 @@ const MeasurementsStep = ({
       goPrevious={goPrevious}
       isValidStep={isValidStep}
       pageNum={pageNum}
-      pagesLength={pageLength}
+      pagesLength={pagesLength}
     >
       <div css={inputWrapper}>
         <FormField

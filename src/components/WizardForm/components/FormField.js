@@ -19,14 +19,7 @@ const errorMessage = css`
 const FormField = ({ name, label, type, component, ...rest }) => {
   return (
     <div css={formFieldStyle}>
-      <Field
-        name={name}
-        label={label}
-        type={type}
-        // placeholder={label}
-        component={component}
-        // {...rest}
-      />
+      <Field name={name} label={label} type={type} component={component} />
       <ErrorMessage name={name}>
         {message => <span css={errorMessage}>{message}</span>}
       </ErrorMessage>

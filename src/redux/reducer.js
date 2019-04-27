@@ -3,13 +3,14 @@ import { generate } from 'shortid';
 import {
   CHOOSE_DESIGN,
   CHOOSE_CLOTHES_CATEGORY,
-  CHOOSE_FABRIC
+  CHOOSE_FABRIC,
+  RESET_ORDER_FORM_REDUCER
 } from './actions';
 import { images } from '../designs';
 
 const { dresses, skirts, blouses } = images;
 
-export const formState = {
+export const initialState = {
   clothesCategory: 'skirts',
   dresses: dresses.map(dress => ({
     ...dress,
@@ -31,7 +32,7 @@ export const formState = {
   }))
 };
 
-const formReducer = (state = formState, action) => {
+const formReducer = (state = initialState, action) => {
   switch (action.type) {
     // case CHOOSE_CLOTHES_CATEGORY:
     //   return { ...state, clothesCategory: action.category };
@@ -62,6 +63,9 @@ const formReducer = (state = formState, action) => {
             : item
         )
       };
+
+    case RESET_ORDER_FORM_REDUCER:
+      return initialState;
 
     default:
       return state;

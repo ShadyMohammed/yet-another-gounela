@@ -40,6 +40,7 @@ const StepLayout = ({
   pageNum,
   pagesLength,
   onClick,
+  goToFirstStep,
   goNext,
   goPrevious,
   isValidStep
@@ -48,19 +49,24 @@ const StepLayout = ({
     <h2 css={styledTitle}>{title}</h2>
     {children}
     <div css={formActions}>
-      {pageNum !== 0 && (
+      {pageNum < pagesLength - 1 && (
         <Button inverted onClick={goPrevious}>
           السابق
         </Button>
       )}
-      {pageNum !== pagesLength - 1 && (
+      {pageNum < pagesLength - 2 && (
         <Button onClick={goNext} disabled={!isValidStep}>
-          التالــي
+          التالي
+        </Button>
+      )}
+      {pageNum === pagesLength - 2 && (
+        <Button type="submit" disabled={!isValidStep}>
+          اطلبي دلوقتي
         </Button>
       )}
       {pageNum === pagesLength - 1 && (
-        <Button type="submit" disabled={!isValidStep}>
-          اطلبي دلوقتي
+        <Button type="submit" disabled={!isValidStep} onClick={goToFirstStep}>
+          اوردر جديد؟
         </Button>
       )}
     </div>
