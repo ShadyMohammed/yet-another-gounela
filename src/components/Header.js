@@ -22,6 +22,11 @@ const nav = css`
   font-size: 2rem;
   font-weight: 700;
   padding-right: 120px;
+
+  @media screen and (max-size: 768px) {
+    padding-right: 0;
+    justify-content: center;
+  }
 `;
 
 const hero = css`

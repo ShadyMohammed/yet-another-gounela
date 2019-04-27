@@ -16,6 +16,14 @@ const styledTitle = css`
   color: rgba(0, 0, 0, 0.7);
   font-size: 2.5rem;
   margin-bottom: 5%;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
 
 const formActions = css`
