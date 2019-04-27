@@ -23,7 +23,7 @@ const DesignStep = ({
   return (
     <StepLayout
       style={style}
-      title="اختاري الجيبة اللي عاجبكي"
+      title="اختاري الجيبة اللي عاجباكي"
       pageNum={pageNum}
       pagesLength={pagesLength}
       goNext={goNext}

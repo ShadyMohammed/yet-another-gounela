@@ -18,7 +18,7 @@ const styledTitle = css`
   margin-bottom: 5%;
 
   @media screen and (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 `;
 
