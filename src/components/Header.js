@@ -23,7 +23,7 @@ const nav = css`
   font-weight: 700;
   padding-right: 120px;
 
-  @media screen and (max-size: 768px) {
+  @media screen and (max-width: 768px) {
     padding-right: 0;
     justify-content: center;
   }
