@@ -1,4 +1,3 @@
-import { createFabricImageObj } from '../../utils';
 import { fabrics } from '../fabrics/index';
 import dress1 from './dress1.jpg';
 import dress2 from './dress2.jpg';

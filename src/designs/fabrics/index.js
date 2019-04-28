@@ -23,15 +23,26 @@ import fab22 from './Snap 2019-04-07 at 22.23.59.png';
 import fab23 from './Snap 2019-04-07 at 22.24.53.png';
 import fab24 from './Snap 2019-04-07 at 22.25.29.png';
 import fab25 from './Snap 2019-04-07 at 22.25.53.png';
+import { skirtNames } from '../../constants';
 
 export const fabrics = {
   fab1: {
     name: 'بيلسيه اسود سادة',
-    image: fab1
+    image: fab1,
+    price: {
+      [skirtNames.PLESY]: 250
+    }
   },
   fab2: {
     name: 'روزالين منقط',
-    image: fab2
+    image: fab2,
+    price: {
+      [skirtNames.A_LINE_LONG_BACK]: 230,
+      [skirtNames.A_LINE_BUTTONS]: 230,
+      [skirtNames.A_LINE_PLAIN]: 230,
+      [skirtNames.PENCIL_PLAIN]: 185,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 190
+    }
   },
   fab3: {
     name: '',
@@ -39,7 +50,10 @@ export const fabrics = {
   },
   fab4: {
     name: 'بيلسيه أزرق فاتح سادة',
-    image: fab4
+    image: fab4,
+    price: {
+      [skirtNames.PLESY]: 250
+    }
   },
   fab5: {
     name: '',
@@ -47,7 +61,14 @@ export const fabrics = {
   },
   fab6: {
     name: 'سوفت مشجر أسود في أصفر',
-    image: fab6
+    image: fab6,
+    price: {
+      [skirtNames.A_LINE_LONG_BACK]: 210,
+      [skirtNames.A_LINE_BUTTONS]: 210,
+      [skirtNames.A_LINE_PLAIN]: 210,
+      [skirtNames.PENCIL_PLAIN]: 165,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 170
+    }
   },
   fab7: {
     name: '',
@@ -63,15 +84,32 @@ export const fabrics = {
   },
   fab10: {
     name: 'بيلسيه زيتي غامي سادة',
-    image: fab10
+    image: fab10,
+    price: {
+      [skirtNames.PLESY]: 250
+    }
   },
   fab11: {
     name: 'روزالين منقط أسود في بني',
-    image: fab11
+    image: fab11,
+    price: {
+      [skirtNames.A_LINE_LONG_BACK]: 230,
+      [skirtNames.A_LINE_BUTTONS]: 230,
+      [skirtNames.A_LINE_PLAIN]: 230,
+      [skirtNames.PENCIL_PLAIN]: 185,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 190
+    }
   },
   fab12: {
     name: 'روزالين بينك سادة',
-    image: fab12
+    image: fab12,
+    price: {
+      [skirtNames.A_LINE_LONG_BACK]: 230,
+      [skirtNames.A_LINE_BUTTONS]: 230,
+      [skirtNames.A_LINE_PLAIN]: 230,
+      [skirtNames.PENCIL_PLAIN]: 185,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 190
+    }
   },
   fab13: {
     name: '',
@@ -79,11 +117,25 @@ export const fabrics = {
   },
   fab14: {
     name: 'سوفت منقوش ألوان متداخلة',
-    image: fab14
+    image: fab14,
+    price: {
+      [skirtNames.A_LINE_LONG_BACK]: 210,
+      [skirtNames.A_LINE_BUTTONS]: 210,
+      [skirtNames.A_LINE_PLAIN]: 210,
+      [skirtNames.PENCIL_PLAIN]: 165,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 170
+    }
   },
   fab15: {
     name: 'روزالين مربعات كبيرة',
-    image: fab15
+    image: fab15,
+    price: {
+      [skirtNames.A_LINE_LONG_BACK]: 230,
+      [skirtNames.A_LINE_BUTTONS]: 230,
+      [skirtNames.A_LINE_PLAIN]: 230,
+      [skirtNames.PENCIL_PLAIN]: 185,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 190
+    }
   },
   fab16: {
     name: '',
@@ -91,7 +143,14 @@ export const fabrics = {
   },
   fab17: {
     name: 'سوفت آيس كريم',
-    image: fab17
+    image: fab17,
+    price: {
+      [skirtNames.A_LINE_LONG_BACK]: 210,
+      [skirtNames.A_LINE_BUTTONS]: 210,
+      [skirtNames.A_LINE_PLAIN]: 210,
+      [skirtNames.PENCIL_PLAIN]: 165,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 170
+    }
   },
   fab18: {
     name: '',
@@ -107,22 +166,48 @@ export const fabrics = {
   },
   fab21: {
     name: 'روزالين كافيه سادة',
-    image: fab21
+    image: fab21,
+    price: {
+      [skirtNames.A_LINE_LONG_BACK]: 230,
+      [skirtNames.A_LINE_BUTTONS]: 230,
+      [skirtNames.A_LINE_PLAIN]: 230,
+      [skirtNames.PENCIL_PLAIN]: 185,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 190
+    }
   },
   fab22: {
     name: 'روزالين بنفسجي سادة',
-    image: fab22
+    image: fab22,
+    price: {
+      [skirtNames.A_LINE_LONG_BACK]: 230,
+      [skirtNames.A_LINE_BUTTONS]: 230,
+      [skirtNames.A_LINE_PLAIN]: 230,
+      [skirtNames.PENCIL_PLAIN]: 185,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 190
+    }
   },
   fab23: {
     name: 'جبردين بينك سادة',
-    image: fab23
+    image: fab23,
+    price: {
+      [skirtNames.PENCIL_PLAIN]: 165,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 170
+    }
   },
   fab24: {
     name: 'جبردين أسود سادة',
-    image: fab24
+    image: fab24,
+    price: {
+      [skirtNames.PENCIL_PLAIN]: 165,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 170
+    }
   },
   fab25: {
     name: 'جبردين كافيه تقيل سادة',
-    image: fab25
+    image: fab25,
+    price: {
+      [skirtNames.PENCIL_PLAIN]: 165,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 170
+    }
   }
 };

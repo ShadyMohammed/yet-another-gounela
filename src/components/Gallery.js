@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { css } from 'styled-components/macro';
 
 const styledGalleryItem = css`
@@ -33,13 +34,16 @@ const decWrapper = css`
 
   p {
     word-break: break-all;
-    padding: 1rem;
     font-weight: 600;
     font-size: 1.2rem;
     line-height: 1.4;
     color: rgba(0, 0, 0, 0.75);
     margin: 0;
     font-family: 'Cairo', sans-serif;
+  }
+
+  p:first-of-type {
+    padding: 1rem;
   }
 `;
 
@@ -51,7 +55,13 @@ const gallery = css`
   overflow: auto;
 `;
 
-const GalleryItem = ({ option, onSelect, isActive }) => (
+const GalleryItem = ({
+  option,
+  onSelect,
+  isActive,
+  description,
+  activeSkirtDesignName
+}) => (
   <div css={decWrapper}>
     <div
       css={styledGalleryItem}
@@ -60,21 +70,33 @@ const GalleryItem = ({ option, onSelect, isActive }) => (
     >
       <img src={option.image} alt={option.name} />
     </div>
-    <p>الوصف</p>
+    <p>{option.name}</p>
+    {option.price && (
+      <p className="price">{option.price[activeSkirtDesignName]} جنيه</p>
+    )}
   </div>
 );
 
-const Gallery = ({ items, onSelect }) => (
-  <div css={gallery}>
-    {items.map(item => (
-      <GalleryItem
-        key={item.id}
-        option={item}
-        isActive={item.isActive}
-        onSelect={onSelect}
-      />
-    ))}
-  </div>
-);
+const Gallery = ({ items, onSelect, skirts }) => {
+  const activeSkirtDesignName =
+    skirts.find(skirt => skirt.isActive) &&
+    skirts.find(skirt => skirt.isActive).name;
+  return (
+    <div css={gallery}>
+      {items.map(item => (
+        <GalleryItem
+          key={item.id}
+          option={item}
+          isActive={item.isActive}
+          onSelect={onSelect}
+          activeSkirtDesignName={activeSkirtDesignName}
+        />
+      ))}
+    </div>
+  );
+};
+const mapStateToProps = state => ({
+  skirts: state.formReducer.skirts
+});
 
-export default Gallery;
+export default connect(mapStateToProps)(Gallery);
