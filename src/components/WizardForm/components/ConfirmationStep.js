@@ -20,7 +20,7 @@ const orderSummary = css`
   padding: 2rem;
 
   p {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 3rem;
 
@@ -67,7 +67,9 @@ const ConfirmationStep = ({
   pagesLength,
   goToFirstStep
 }) => {
-  const orderedItem = skirts.find(skirt => skirt.isActive);
+  const orderedModel = skirts.find(skirt => skirt.isActive);
+  const modelFabric = orderedModel.fabrics.find(fabric => fabric.isActive);
+  const orderPrice = modelFabric.price[orderedModel.name];
   return (
     <StepLayout
       style={style}
@@ -80,17 +82,17 @@ const ConfirmationStep = ({
       <div css={confirmationWrapper}>
         <div css={orderSummary}>
           <p>
-            الموديل: <span>Bla</span>
+            الموديل: <span>{orderedModel.name}</span>
           </p>
           <p>
-            القماش: <span>Bla</span>
+            القماش: <span>{modelFabric.name}</span>
           </p>
           <p>
-            السعر: <span>Bla</span>
+            السعر: <span>{orderPrice} جنيه</span>
           </p>
         </div>
         <div css={imgWrapper}>
-          <img src={orderedItem.image} alt={orderedItem.name} />
+          <img src={orderedModel.image} alt={orderedModel.name} />
         </div>
       </div>
     </StepLayout>
