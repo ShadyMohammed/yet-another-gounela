@@ -23,31 +23,191 @@ import fab22 from './Snap 2019-04-07 at 22.23.59.png';
 import fab23 from './Snap 2019-04-07 at 22.24.53.png';
 import fab24 from './Snap 2019-04-07 at 22.25.29.png';
 import fab25 from './Snap 2019-04-07 at 22.25.53.png';
+import { skirtNames } from '../../constants';
 
 export const fabrics = {
-  fab1,
-  fab2,
-  fab3,
-  fab4,
-  fab5,
-  fab6,
-  fab7,
-  fab8,
-  fab9,
-  fab10,
-  fab11,
-  fab12,
-  fab13,
-  fab14,
-  fab15,
-  fab16,
-  fab17,
-  fab18,
-  fab19,
-  fab20,
-  fab21,
-  fab22,
-  fab23,
-  fab24,
-  fab25
+  fab1: {
+    name: 'بيلسيه اسود سادة',
+    image: fab1,
+    price: {
+      [skirtNames.PLESY]: 250
+    }
+  },
+  fab2: {
+    name: 'روزالين منقط',
+    image: fab2,
+    price: {
+      [skirtNames.A_LINE_LONG_BACK]: 230,
+      [skirtNames.A_LINE_BUTTONS]: 230,
+      [skirtNames.A_LINE_PLAIN]: 230,
+      [skirtNames.PENCIL_PLAIN]: 185,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 190
+    }
+  },
+  fab3: {
+    name: '',
+    image: fab3
+  },
+  fab4: {
+    name: 'بيلسيه أزرق فاتح سادة',
+    image: fab4,
+    price: {
+      [skirtNames.PLESY]: 250
+    }
+  },
+  fab5: {
+    name: '',
+    image: fab5
+  },
+  fab6: {
+    name: 'سوفت مشجر أسود في أصفر',
+    image: fab6,
+    price: {
+      [skirtNames.A_LINE_LONG_BACK]: 210,
+      [skirtNames.A_LINE_BUTTONS]: 210,
+      [skirtNames.A_LINE_PLAIN]: 210,
+      [skirtNames.PENCIL_PLAIN]: 165,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 170
+    }
+  },
+  fab7: {
+    name: '',
+    image: fab7
+  },
+  fab8: {
+    name: '',
+    image: fab8
+  },
+  fab9: {
+    name: '',
+    image: fab9
+  },
+  fab10: {
+    name: 'بيلسيه زيتي غامي سادة',
+    image: fab10,
+    price: {
+      [skirtNames.PLESY]: 250
+    }
+  },
+  fab11: {
+    name: 'روزالين منقط أسود في بني',
+    image: fab11,
+    price: {
+      [skirtNames.A_LINE_LONG_BACK]: 230,
+      [skirtNames.A_LINE_BUTTONS]: 230,
+      [skirtNames.A_LINE_PLAIN]: 230,
+      [skirtNames.PENCIL_PLAIN]: 185,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 190
+    }
+  },
+  fab12: {
+    name: 'روزالين بينك سادة',
+    image: fab12,
+    price: {
+      [skirtNames.A_LINE_LONG_BACK]: 230,
+      [skirtNames.A_LINE_BUTTONS]: 230,
+      [skirtNames.A_LINE_PLAIN]: 230,
+      [skirtNames.PENCIL_PLAIN]: 185,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 190
+    }
+  },
+  fab13: {
+    name: '',
+    image: fab13
+  },
+  fab14: {
+    name: 'سوفت منقوش ألوان متداخلة',
+    image: fab14,
+    price: {
+      [skirtNames.A_LINE_LONG_BACK]: 210,
+      [skirtNames.A_LINE_BUTTONS]: 210,
+      [skirtNames.A_LINE_PLAIN]: 210,
+      [skirtNames.PENCIL_PLAIN]: 165,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 170
+    }
+  },
+  fab15: {
+    name: 'روزالين مربعات كبيرة',
+    image: fab15,
+    price: {
+      [skirtNames.A_LINE_LONG_BACK]: 230,
+      [skirtNames.A_LINE_BUTTONS]: 230,
+      [skirtNames.A_LINE_PLAIN]: 230,
+      [skirtNames.PENCIL_PLAIN]: 185,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 190
+    }
+  },
+  fab16: {
+    name: '',
+    image: fab16
+  },
+  fab17: {
+    name: 'سوفت آيس كريم',
+    image: fab17,
+    price: {
+      [skirtNames.A_LINE_LONG_BACK]: 210,
+      [skirtNames.A_LINE_BUTTONS]: 210,
+      [skirtNames.A_LINE_PLAIN]: 210,
+      [skirtNames.PENCIL_PLAIN]: 165,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 170
+    }
+  },
+  fab18: {
+    name: '',
+    image: fab18
+  },
+  fab19: {
+    name: '',
+    image: fab19
+  },
+  fab20: {
+    name: '',
+    image: fab20
+  },
+  fab21: {
+    name: 'روزالين كافيه سادة',
+    image: fab21,
+    price: {
+      [skirtNames.A_LINE_LONG_BACK]: 230,
+      [skirtNames.A_LINE_BUTTONS]: 230,
+      [skirtNames.A_LINE_PLAIN]: 230,
+      [skirtNames.PENCIL_PLAIN]: 185,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 190
+    }
+  },
+  fab22: {
+    name: 'روزالين بنفسجي سادة',
+    image: fab22,
+    price: {
+      [skirtNames.A_LINE_LONG_BACK]: 230,
+      [skirtNames.A_LINE_BUTTONS]: 230,
+      [skirtNames.A_LINE_PLAIN]: 230,
+      [skirtNames.PENCIL_PLAIN]: 185,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 190
+    }
+  },
+  fab23: {
+    name: 'جبردين بينك سادة',
+    image: fab23,
+    price: {
+      [skirtNames.PENCIL_PLAIN]: 165,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 170
+    }
+  },
+  fab24: {
+    name: 'جبردين أسود سادة',
+    image: fab24,
+    price: {
+      [skirtNames.PENCIL_PLAIN]: 165,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 170
+    }
+  },
+  fab25: {
+    name: 'جبردين كافيه تقيل سادة',
+    image: fab25,
+    price: {
+      [skirtNames.PENCIL_PLAIN]: 165,
+      [skirtNames.PENCIL_WITH_BUTTONS]: 170
+    }
+  }
 };

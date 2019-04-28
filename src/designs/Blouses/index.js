@@ -1,4 +1,3 @@
-import { createFabricImageObj } from '../../utils';
 import { fabrics } from '../fabrics';
 import blouse1 from './blouse1.jpg';
 import blouse2 from './blouse2.png';
@@ -37,16 +36,16 @@ export const blouses = [
   {
     name: 'blouse1',
     image: blouse1,
-    fabrics: blouse1Fabrics.map(createFabricImageObj)
+    fabrics: blouse1Fabrics
   },
   {
     name: 'blouse1',
     image: blouse2,
-    fabrics: blouse2Fabrics.map(createFabricImageObj)
+    fabrics: blouse2Fabrics
   },
   {
     name: 'blouse1',
     image: blouse3,
-    fabrics: blouse3Fabrics.map(createFabricImageObj)
+    fabrics: blouse3Fabrics
   }
 ];
