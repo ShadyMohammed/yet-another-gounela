@@ -43,26 +43,26 @@ export const skirts = [
   {
     name: 'skirt1',
     image: skirt1,
-    fabrics: skirt1Fabrics.map(createFabricImageObj)
+    fabrics: skirt1Fabrics
   },
   {
     name: 'skirt2',
     image: skirt2,
-    fabrics: skirt2Fabrics.map(createFabricImageObj)
+    fabrics: skirt2Fabrics
   },
   {
     name: 'skirt3',
     image: skirt3,
-    fabrics: skirt3Fabrics.map(createFabricImageObj)
+    fabrics: skirt3Fabrics
   },
   // {
   //   name: 'skirt4',
   //   image: skirt4,
-  //   fabrics: skirt4Fabrics.map(createFabricImageObj)
+  //   fabrics: skirt4Fabrics
   // },
   {
-    name: 'skirt5',
+    name: 'A line with long back',
     image: skirt5,
-    fabrics: skirt5Fabrics.map(createFabricImageObj)
+    fabrics: skirt5Fabrics
   }
 ];

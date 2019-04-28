@@ -31,31 +31,31 @@ export const dresses = [
   {
     name: 'dress1',
     image: dress1,
-    fabrics: dress1Fabrics.map(createFabricImageObj)
+    fabrics: dress1Fabrics
   },
   {
     name: 'dress2',
     image: dress2,
-    fabrics: dress2Fabrics.map(createFabricImageObj)
+    fabrics: dress2Fabrics
   },
   {
     name: 'dress3',
     image: dress3,
-    fabrics: dress3Fabrics.map(createFabricImageObj)
+    fabrics: dress3Fabrics
   },
   {
     name: 'dress4',
     image: dress4,
-    fabrics: dress4Fabrics.map(createFabricImageObj)
+    fabrics: dress4Fabrics
   },
   {
     name: 'dress5',
     image: dress5,
-    fabrics: dress5Fabrics.map(createFabricImageObj)
+    fabrics: dress5Fabrics
   },
   {
     name: 'dress6',
     image: dress6,
-    fabrics: dress6Fabrics.map(createFabricImageObj)
+    fabrics: dress6Fabrics
   }
 ];

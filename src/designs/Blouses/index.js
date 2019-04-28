@@ -37,16 +37,16 @@ export const blouses = [
   {
     name: 'blouse1',
     image: blouse1,
-    fabrics: blouse1Fabrics.map(createFabricImageObj)
+    fabrics: blouse1Fabrics
   },
   {
     name: 'blouse1',
     image: blouse2,
-    fabrics: blouse2Fabrics.map(createFabricImageObj)
+    fabrics: blouse2Fabrics
   },
   {
     name: 'blouse1',
     image: blouse3,
-    fabrics: blouse3Fabrics.map(createFabricImageObj)
+    fabrics: blouse3Fabrics
   }
 ];
