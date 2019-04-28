@@ -142,8 +142,8 @@ const socialIcon = css`
 `;
 
 const socialMediaData = [
-  { name: 'facebook', url: 'https://stefanie.com' },
-  { name: 'instagram', url: 'http://wyman.name' }
+  { name: 'facebook', url: 'https://www.facebook.com/Gounelaofficial' },
+  { name: 'instagram', url: 'https://www.instagram.com/gounelastore' }
 ];
 
 const Header = () => {
