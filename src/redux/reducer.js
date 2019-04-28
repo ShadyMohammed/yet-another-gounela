@@ -16,19 +16,31 @@ export const initialState = {
     ...dress,
     id: generate(),
     isActive: false,
-    fabrics: dress.fabrics.map(fabric => ({ isActive: false, ...fabric }))
+    fabrics: dress.fabrics.map(fabric => ({
+      id: generate(),
+      isActive: false,
+      ...fabric
+    }))
   })),
   skirts: skirts.map(skirt => ({
     ...skirt,
     id: generate(),
     isActive: false,
-    fabrics: skirt.fabrics.map(fabric => ({ isActive: false, ...fabric }))
+    fabrics: skirt.fabrics.map(fabric => ({
+      id: generate(),
+      isActive: false,
+      ...fabric
+    }))
   })),
   blouses: blouses.map(blouse => ({
     ...blouse,
     id: generate(),
     isActive: false,
-    fabrics: blouse.fabrics.map(fabric => ({ isActive: false, ...fabric }))
+    fabrics: blouse.fabrics.map(fabric => ({
+      id: generate(),
+      isActive: false,
+      ...fabric
+    }))
   }))
 };
 

@@ -53,7 +53,7 @@ const StepLayout = ({
     <h2 css={styledTitle}>{title}</h2>
     {children}
     <div css={formActions}>
-      {pageNum < pagesLength - 1 && (
+      {pageNum !== 0 && pageNum < pagesLength - 1 && (
         <Button inverted onClick={goPrevious}>
           السابق
         </Button>

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import StepLayout from './StepLayout';
 import Gallery from '../../Gallery';
 
-import { chooseDesign } from '../../../redux/actions';
+import { chooseDesign, resetOrderFormReducer } from '../../../redux/actions';
 
 const DesignStep = ({
   onSelectDesign,
@@ -14,7 +14,8 @@ const DesignStep = ({
   pagesLength,
   goNext,
   goPrevious,
-  setFieldValue
+  setFieldValue,
+  resetOrderFormReducer
 }) => {
   const isValidStep = !!clothesCategories[
     clothesCategories.clothesCategory

@@ -70,10 +70,7 @@ const WizardForm = ({ resetOrderFormReducer }) => {
 
   const goNext = () => setPageNum(pageNum + 1);
   const goPrevious = () => setPageNum(pageNum - 1);
-  const goToFirstStep = () => {
-    setPageNum(0);
-    resetOrderFormReducer();
-  };
+  const goToFirstStep = () => setPageNum(0);
 
   const transitions = useTransition(pageNum, p => p, {
     from: {
