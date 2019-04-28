@@ -4,6 +4,9 @@ import skirt2 from './skirt2.jpg';
 import skirt3 from './skirt3.jpg';
 // import skirt4 from './skirt4.jpg';
 import skirt5 from './skirt5.jpg';
+import skirt6 from './skirt6.jpg';
+import skirt7 from './skirt7.jpg';
+
 import { skirtNames } from '../../constants';
 const {
   fab15,
@@ -62,6 +65,16 @@ export const skirts = [
   {
     name: skirtNames.A_LINE_LONG_BACK,
     image: skirt5,
+    fabrics: skirt5Fabrics
+  },
+  {
+    name: skirtNames.A_LINE_PLAIN,
+    image: skirt6,
+    fabrics: skirt5Fabrics
+  },
+  {
+    name: skirtNames.A_LINE_BUTTONS,
+    image: skirt7,
     fabrics: skirt5Fabrics
   }
 ];

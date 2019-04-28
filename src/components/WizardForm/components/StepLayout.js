@@ -1,6 +1,7 @@
 import React from 'react';
 import { css } from 'styled-components/macro';
 import { animated as Animated } from 'react-spring';
+import { Link, Element } from 'react-scroll';
 import Button from '../../Button';
 
 const stepLayout = css`
@@ -49,32 +50,44 @@ const StepLayout = ({
   goPrevious,
   isValidStep
 }) => (
-  <Animated.div css={stepLayout} style={style}>
-    <h2 css={styledTitle}>{title}</h2>
-    {children}
-    <div css={formActions}>
-      {pageNum !== 0 && pageNum < pagesLength - 1 && (
-        <Button inverted onClick={goPrevious}>
-          السابق
-        </Button>
-      )}
-      {pageNum < pagesLength - 2 && (
-        <Button onClick={goNext} disabled={!isValidStep}>
-          التالي
-        </Button>
-      )}
-      {pageNum === pagesLength - 2 && (
-        <Button type="submit" disabled={!isValidStep}>
-          اطلبي دلوقتي
-        </Button>
-      )}
-      {pageNum === pagesLength - 1 && (
-        <Button type="submit" disabled={!isValidStep} onClick={goToFirstStep}>
-          اوردر جديد؟
-        </Button>
-      )}
-    </div>
-  </Animated.div>
+  <Element name="stepStart">
+    <Animated.div css={stepLayout} style={style}>
+      <h2 css={styledTitle}>{title}</h2>
+      {children}
+      <div css={formActions}>
+        {pageNum !== 0 && pageNum < pagesLength - 1 && (
+          <Link to="stepStart">
+            <Button inverted onClick={goPrevious}>
+              السابق
+            </Button>
+          </Link>
+        )}
+        {pageNum < pagesLength - 2 && (
+          <Link to="stepStart">
+            <Button onClick={goNext} disabled={!isValidStep}>
+              التالي
+            </Button>
+          </Link>
+        )}
+        {pageNum === pagesLength - 2 && (
+          <Button type="submit" disabled={!isValidStep}>
+            اطلبي دلوقتي
+          </Button>
+        )}
+        {pageNum === pagesLength - 1 && (
+          <Link to="stepStart">
+            <Button
+              type="submit"
+              disabled={!isValidStep}
+              onClick={goToFirstStep}
+            >
+              عودة للصفحة الرئيسية
+            </Button>
+          </Link>
+        )}
+      </div>
+    </Animated.div>
+  </Element>
 );
 
 export default StepLayout;
