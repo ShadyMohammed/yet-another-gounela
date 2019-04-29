@@ -11,7 +11,6 @@ import fab10 from './Copy of 53581846_2748711878487226_6713575118246772736_n.jpg
 import fab11 from './DSC_5855.JPG';
 import fab12 from './DSC_5860.jpg';
 import fab13 from './DSC_5870.jpg';
-import fab14 from './DSC_5871.JPG';
 import fab15 from './DSC_5877.JPG';
 import fab16 from './DSC_5880.jpg';
 import fab17 from './DSC_5885.jpg';
@@ -112,12 +111,8 @@ export const fabrics = {
     }
   },
   fab13: {
-    name: '',
-    image: fab13
-  },
-  fab14: {
     name: 'سوفت منقوش ألوان متداخلة',
-    image: fab14,
+    image: fab13,
     price: {
       [skirtNames.A_LINE_LONG_BACK]: 210,
       [skirtNames.A_LINE_BUTTONS]: 210,

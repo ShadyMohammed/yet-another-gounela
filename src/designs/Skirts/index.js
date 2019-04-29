@@ -21,13 +21,14 @@ const {
   fab24,
   fab25,
   fab4,
-  fab9
+  fab6,
+  fab11,
+  fab17
 } = fabrics;
 
-const skirt1Fabrics = [fab1, fab4, fab10];
-const skirt2Fabrics = [
+const plesyFabrics = [fab1, fab4, fab10];
+const pencilFabrics = [
   fab2,
-  fab9,
   fab12,
   fab13,
   fab15,
@@ -35,27 +36,38 @@ const skirt2Fabrics = [
   fab22,
   fab23,
   fab24,
-  fab25
+  fab25,
+  fab6,
+  fab11,
+  fab17
 ];
-const skirt3Fabrics = [fab12, fab15, fab21, fab23, fab24, fab25];
-// const skirt4Fabrics = [fab21, fab22, fab23];
-const skirt5Fabrics = [fab2, fab12, fab15, fab21, fab22];
+const aLineFabrics = [
+  fab2,
+  fab6,
+  fab11,
+  fab12,
+  fab13,
+  fab15,
+  fab17,
+  fab21,
+  fab22
+];
 
 export const skirts = [
   {
     name: skirtNames.PLESY,
     image: skirt1,
-    fabrics: skirt1Fabrics
+    fabrics: plesyFabrics
   },
   {
     name: skirtNames.PENCIL_PLAIN,
     image: skirt2,
-    fabrics: skirt2Fabrics
+    fabrics: pencilFabrics
   },
   {
     name: skirtNames.PENCIL_WITH_BUTTONS,
     image: skirt3,
-    fabrics: skirt3Fabrics
+    fabrics: pencilFabrics
   },
   // {
   //   name: 'skirt4',
@@ -65,16 +77,16 @@ export const skirts = [
   {
     name: skirtNames.A_LINE_LONG_BACK,
     image: skirt5,
-    fabrics: skirt5Fabrics
+    fabrics: aLineFabrics
   },
   {
     name: skirtNames.A_LINE_PLAIN,
     image: skirt6,
-    fabrics: skirt5Fabrics
+    fabrics: aLineFabrics
   },
   {
     name: skirtNames.A_LINE_BUTTONS,
     image: skirt7,
-    fabrics: skirt5Fabrics
+    fabrics: aLineFabrics
   }
 ];
