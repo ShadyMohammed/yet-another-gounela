@@ -16,10 +16,16 @@ const errorMessage = css`
   font-size: ${props => props.theme.smallFont};
 `;
 
-const FormField = ({ name, label, type, component, ...rest }) => {
+const FormField = ({ name, label, type, component, optional, ...rest }) => {
   return (
     <div css={formFieldStyle}>
-      <Field name={name} label={label} type={type} component={component} />
+      <Field
+        name={name}
+        label={label}
+        type={type}
+        optional={optional}
+        component={component}
+      />
       <ErrorMessage name={name}>
         {message => <span css={errorMessage}>{message}</span>}
       </ErrorMessage>

@@ -47,12 +47,30 @@ const inputBorder = css`
   }
 `;
 
-const InputField = ({ label, placeholder = '', field, ...inputProps }) => (
+const labelWrapper = css`
+  display: flex;
+  justify-content: space-between;
+
+  span {
+    font-size: 0.8rem;
+  }
+`;
+
+const InputField = ({
+  label,
+  placeholder = '',
+  field,
+  optional,
+  ...inputProps
+}) => (
   <div css={styledInputField}>
     <div className="inputWrapper" css={inputBorder}>
       <input placeholder={placeholder} {...field} {...inputProps} />
     </div>
-    {label && <label htmlFor={field.name}>{label}</label>}
+    <div css={labelWrapper}>
+      {label && <label htmlFor={field.name}>{label}</label>}
+      {optional && <span>اختياري</span>}
+    </div>
   </div>
 );
 

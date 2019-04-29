@@ -1,8 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { css } from 'styled-components/macro';
 import StepLayout from './StepLayout';
 import InputField from '../../InputField';
 import FormField from './FormField';
+import { skirtNames } from '../../../constants';
 
 const inputWrapper = css`
   display: flex;
@@ -19,7 +21,8 @@ const MeasurementsStep = ({
   goNext,
   goPrevious,
   pageNum,
-  pagesLength
+  pagesLength,
+  activeSkirt
 }) => {
   const isValidStep =
     touched.height && touched.weight && !errors.height && !errors.weight;
@@ -47,9 +50,37 @@ const MeasurementsStep = ({
           label="الوزن"
           component={InputField}
         />
+        <FormField
+          name="waist"
+          type="number"
+          label="مقاس الوسط"
+          optional
+          component={InputField}
+        />
+        <FormField
+          name="skirtLength"
+          type="number"
+          label="مقاس الجيبة"
+          optional
+          component={InputField}
+        />
+        {(activeSkirt.name === skirtNames.PENCIL_PLAIN ||
+          activeSkirt.name === skirtNames.PENCIL_WITH_BUTTONS) && (
+          <FormField
+            name="hips"
+            type="number"
+            label="محيط الأرداف"
+            optional
+            component={InputField}
+          />
+        )}
       </div>
     </StepLayout>
   );
 };
 
-export default MeasurementsStep;
+const mapStateToProps = state => ({
+  activeSkirt: state.formReducer.skirts.find(skirt => skirt.isActive)
+});
+
+export default connect(mapStateToProps)(MeasurementsStep);

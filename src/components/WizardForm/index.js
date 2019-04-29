@@ -23,6 +23,9 @@ const styledForm = css`
 const initialValues = {
   height: '',
   weight: '',
+  waist: '',
+  skirtLength: '',
+  hips: '',
 
   // clothesType: '',
   design: '',
@@ -41,6 +44,9 @@ const validationSchema = Yup.object({
   weight: Yup.number()
     .positive('من فضلك دخلي قيمة صحيحة للوزن')
     .required('من فضلك دخلي وزنك'),
+  waist: Yup.number().positive('من فضلك دخلي قيمة صحيحة لمقاس الوسط'),
+  skirtLength: Yup.number().positive('من فضلك دخلي قيمة صحيحة لطول الجيبة'),
+  hips: Yup.number().positive('من فضلك دخلي قيمة صحيحة لمقاس الأرداف'),
 
   name: Yup.string().required('من فضلك دخلي إسمك'),
   email: Yup.string().email('من فضلك دخلي ايميل صحيح'),
