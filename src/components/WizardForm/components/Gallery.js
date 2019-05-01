@@ -1,6 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { css } from 'styled-components/macro';
+
+import { useDesignsContext } from '../designsContext';
 
 const styledGalleryItem = css`
   padding: 1rem;
@@ -24,7 +25,7 @@ const styledGalleryItem = css`
   }
 `;
 
-const decWrapper = css`
+const descWrapper = css`
   height: 450px;
   width: 300px;
   margin: 0 1rem 1rem;
@@ -55,32 +56,29 @@ const gallery = css`
   overflow: auto;
 `;
 
-const GalleryItem = ({
-  option,
-  onSelect,
-  isActive,
-  description,
-  activeSkirtDesignName
-}) => (
-  <div css={decWrapper}>
-    <div
-      css={styledGalleryItem}
-      isActive={isActive}
-      onClick={onSelect && (() => onSelect(option))}
-    >
-      <img src={option.image} alt={option.name} />
+const GalleryItem = ({ option, onSelect, isActive }) => {
+  const [state] = useDesignsContext();
+  const activeSkirtDesignName =
+    state.skirts.find(skirt => skirt.isActive) &&
+    state.skirts.find(skirt => skirt.isActive).name;
+  return (
+    <div css={descWrapper}>
+      <div
+        css={styledGalleryItem}
+        isActive={isActive}
+        onClick={onSelect && (() => onSelect(option))}
+      >
+        <img src={option.image} alt={option.name} />
+      </div>
+      <p>{option.name}</p>
+      {option.price && (
+        <p className="price">{option.price[activeSkirtDesignName]} جنيه</p>
+      )}
     </div>
-    <p>{option.name}</p>
-    {option.price && (
-      <p className="price">{option.price[activeSkirtDesignName]} جنيه</p>
-    )}
-  </div>
-);
+  );
+};
 
 const Gallery = ({ items, onSelect, skirts }) => {
-  const activeSkirtDesignName =
-    skirts.find(skirt => skirt.isActive) &&
-    skirts.find(skirt => skirt.isActive).name;
   return (
     <div css={gallery}>
       {items.map(item => (
@@ -89,14 +87,10 @@ const Gallery = ({ items, onSelect, skirts }) => {
           option={item}
           isActive={item.isActive}
           onSelect={onSelect}
-          activeSkirtDesignName={activeSkirtDesignName}
         />
       ))}
     </div>
   );
 };
-const mapStateToProps = state => ({
-  skirts: state.formReducer.skirts
-});
 
-export default connect(mapStateToProps)(Gallery);
+export default Gallery;

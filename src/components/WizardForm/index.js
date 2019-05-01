@@ -1,12 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Formik, Form } from 'formik';
 import { useTransition } from 'react-spring';
 import { Element as ScrollElement } from 'react-scroll';
 import { css } from 'styled-components/macro';
 import * as Yup from 'yup';
 
-import { resetOrderFormReducer } from '../../redux/actions';
 import { usePage } from './context';
 
 const styledForm = css`
@@ -124,11 +122,4 @@ const WizardForm = ({ resetOrderFormReducer }) => {
   );
 };
 
-const mapDispatchToProps = {
-  resetOrderFormReducer
-};
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(WizardForm);
+export default WizardForm;

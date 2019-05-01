@@ -1,11 +1,10 @@
 import React from 'react';
 
 import StepLayout from './StepLayout';
-import Gallery from '../../Gallery';
+import Gallery from './Gallery';
 import { clothesCategories } from '../../../designs';
 
-import { chooseClothesCategory } from '../../../redux/actions';
-import { useDesignsContext } from '../designsContext';
+import { useDesignsContext, chooseClothesCategory } from '../designsContext';
 
 const ClothesCategoriesStep = ({ style, setFieldValue }) => {
   const [state, dispatch] = useDesignsContext();

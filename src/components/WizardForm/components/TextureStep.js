@@ -1,9 +1,8 @@
 import React from 'react';
-import Gallery from '../../Gallery';
+import Gallery from './Gallery';
 import StepLayout from './StepLayout';
 
-import { chooseFabric } from '../../../redux/actions';
-import { useDesignsContext } from '../designsContext';
+import { useDesignsContext, chooseFabric } from '../designsContext';
 
 const TextureStep = ({ style, setFieldValue }) => {
   const [state, dispatch] = useDesignsContext();
