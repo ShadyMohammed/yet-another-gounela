@@ -40,14 +40,14 @@ const MeasurementsStep = ({ style, touched, errors }) => {
         <FormField
           name="waist"
           type="number"
-          label="مقاس الوسط"
+          label="محيط الوسط"
           optional
           component={InputField}
         />
         <FormField
           name="skirtLength"
           type="number"
-          label="مقاس الجيبة"
+          label="طول الجيبة"
           optional
           component={InputField}
         />
