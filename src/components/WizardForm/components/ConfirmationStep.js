@@ -1,8 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { css } from 'styled-components/macro';
 
 import StepLayout from './StepLayout';
+import { useDesignsContext } from '../designsContext';
 
 const confirmationWrapper = css`
   width: 100%;
@@ -60,8 +60,9 @@ const imgWrapper = css`
   }
 `;
 
-const ConfirmationStep = ({ skirts, style }) => {
-  const orderedModel = skirts.find(skirt => skirt.isActive);
+const ConfirmationStep = ({ style }) => {
+  const [state] = useDesignsContext();
+  const orderedModel = state.skirts.find(skirt => skirt.isActive);
   const modelFabric = orderedModel.fabrics.find(fabric => fabric.isActive);
   const orderPrice = modelFabric.price[orderedModel.name];
   return (
@@ -86,8 +87,4 @@ const ConfirmationStep = ({ skirts, style }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  skirts: state.formReducer.skirts
-});
-
-export default connect(mapStateToProps)(ConfirmationStep);
+export default ConfirmationStep;

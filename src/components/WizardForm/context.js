@@ -1,5 +1,4 @@
 import React, { createContext, useState, useContext, useMemo } from 'react';
-import { useTransition } from 'react-spring';
 import MeasurementsStep from './components/MeasurementsStep';
 import DesignStep from './components/DesignStep';
 import AddressStep from './components/AddressStep';

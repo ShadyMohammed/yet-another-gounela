@@ -1,10 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { css } from 'styled-components/macro';
 import StepLayout from './StepLayout';
 import InputField from '../../InputField';
 import FormField from './FormField';
 import { skirtNames } from '../../../constants';
+import { useDesignsContext } from '../designsContext';
 
 const inputWrapper = css`
   display: flex;
@@ -12,7 +12,9 @@ const inputWrapper = css`
   flex-wrap: wrap;
 `;
 
-const MeasurementsStep = ({ style, touched, errors, activeSkirt }) => {
+const MeasurementsStep = ({ style, touched, errors }) => {
+  const [state] = useDesignsContext();
+  const activeSkirt = state.skirts.find(skirt => skirt.isActive);
   const isValidStep =
     touched.height && touched.weight && !errors.height && !errors.weight;
 
@@ -64,8 +66,4 @@ const MeasurementsStep = ({ style, touched, errors, activeSkirt }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  activeSkirt: state.formReducer.skirts.find(skirt => skirt.isActive)
-});
-
-export default connect(mapStateToProps)(MeasurementsStep);
+export default MeasurementsStep;

@@ -6,6 +6,7 @@ import Header from './components/Header';
 import WizardForm from './components/WizardForm';
 import { theme } from './theme';
 import { PageProvider } from './components/WizardForm/context';
+import { TailorDesignsContextProvider } from './components/WizardForm/designsContext';
 
 const App = () => {
   return (
@@ -13,9 +14,11 @@ const App = () => {
       <div className="App">
         <GlobalStyles />
         <Header />
-        <PageProvider>
-          <WizardForm />
-        </PageProvider>
+        <TailorDesignsContextProvider>
+          <PageProvider>
+            <WizardForm />
+          </PageProvider>
+        </TailorDesignsContextProvider>
       </div>
     </ThemeProvider>
   );

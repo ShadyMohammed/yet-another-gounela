@@ -1,16 +1,40 @@
-import { combineReducers } from 'redux';
+import React, { createContext, useContext, useReducer, useMemo } from 'react';
 import { generate } from 'shortid';
-import {
-  CHOOSE_DESIGN,
-  CHOOSE_CLOTHES_CATEGORY,
-  CHOOSE_FABRIC,
-  RESET_ORDER_FORM_REDUCER
-} from './actions';
-import { images } from '../designs';
+import { images } from '../../designs';
+
+/**
+|--------------------------------------------------
+| Actions and Actions Creator
+|--------------------------------------------------
+*/
+export const CHOOSE_CLOTHES_CATEGORY = 'CHOOSE_CLOTHES_CATEGORY';
+export const CHOOSE_DESIGN = 'CHOOSE_DESIGN';
+export const CHOOSE_FABRIC = 'CHOOSE_FABRIC';
+
+export const chooseClothesCategory = category => ({
+  type: CHOOSE_CLOTHES_CATEGORY,
+  category
+});
+
+export const chooseDesign = designId => ({
+  type: CHOOSE_DESIGN,
+  designId
+});
+
+export const chooseFabric = fabricId => ({
+  type: CHOOSE_FABRIC,
+  fabricId
+});
+
+/**
+|--------------------------------------------------
+| Reducer
+|--------------------------------------------------
+*/
 
 const { dresses, skirts, blouses } = images;
 
-export const initialState = {
+const initialState = {
   clothesCategory: 'skirts',
   dresses: dresses.map(dress => ({
     ...dress,
@@ -44,7 +68,7 @@ export const initialState = {
   }))
 };
 
-const formReducer = (state = initialState, action) => {
+const designsReducer = (state = initialState, action) => {
   switch (action.type) {
     // case CHOOSE_CLOTHES_CATEGORY:
     //   return { ...state, clothesCategory: action.category };
@@ -76,12 +100,30 @@ const formReducer = (state = initialState, action) => {
         )
       };
 
-    case RESET_ORDER_FORM_REDUCER:
-      return initialState;
-
     default:
       return state;
   }
 };
 
-export const rootReducer = combineReducers({ formReducer });
+/**
+|--------------------------------------------------
+| Context
+|--------------------------------------------------
+*/
+
+const TailorDesignsContext = createContext();
+
+export const useDesignsContext = () => {
+  const context = useContext(TailorDesignsContext);
+  if (!context)
+    throw new Error(
+      'useDesignsContext must be used inside TailorDesignsContextProvider'
+    );
+  return context;
+};
+
+export const TailorDesignsContextProvider = props => {
+  const [state, dispatch] = useReducer(designsReducer, initialState);
+  const value = useMemo(() => [state, dispatch], [state]);
+  return <TailorDesignsContext.Provider value={value} {...props} />;
+};

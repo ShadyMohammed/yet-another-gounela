@@ -1,11 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import Gallery from '../../Gallery';
 import StepLayout from './StepLayout';
-import { chooseFabric } from '../../../redux/actions';
 
-const TextureStep = ({ style, form, chooseFabric, setFieldValue }) => {
-  const fabrics = form[form.clothesCategory].find(design => design.isActive)
+import { chooseFabric } from '../../../redux/actions';
+import { useDesignsContext } from '../designsContext';
+
+const TextureStep = ({ style, setFieldValue }) => {
+  const [state, dispatch] = useDesignsContext();
+  const fabrics = state[state.clothesCategory].find(design => design.isActive)
     .fabrics;
 
   const isValidStep = !!fabrics.find(fab => fab.isActive);
@@ -14,7 +16,7 @@ const TextureStep = ({ style, form, chooseFabric, setFieldValue }) => {
       <Gallery
         items={fabrics}
         onSelect={({ id, name }) => {
-          chooseFabric(id);
+          dispatch(chooseFabric(id));
           setFieldValue('texture', name);
         }}
       />
@@ -22,15 +24,4 @@ const TextureStep = ({ style, form, chooseFabric, setFieldValue }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  form: state.formReducer
-});
-
-const mapDispatchToProps = {
-  chooseFabric
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TextureStep);
+export default TextureStep;

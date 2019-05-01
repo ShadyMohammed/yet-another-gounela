@@ -1,19 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 import StepLayout from './StepLayout';
 import Gallery from '../../Gallery';
 import { clothesCategories } from '../../../designs';
 
 import { chooseClothesCategory } from '../../../redux/actions';
+import { useDesignsContext } from '../designsContext';
 
-const ClothesCategoriesStep = ({
-  style,
-  chooseClothesCategory,
-  clothesCategory,
-  setFieldValue
-}) => {
-  const isValidStep = clothesCategory;
+const ClothesCategoriesStep = ({ style, setFieldValue }) => {
+  const [state, dispatch] = useDesignsContext();
+  const isValidStep = state.clothesCategory;
   return (
     <StepLayout
       style={style}
@@ -24,22 +20,11 @@ const ClothesCategoriesStep = ({
         items={clothesCategories}
         onSelect={({ name }) => {
           setFieldValue('clothesType', name);
-          chooseClothesCategory(name);
+          dispatch(chooseClothesCategory(name));
         }}
       />
     </StepLayout>
   );
 };
 
-const mapStateToProps = state => ({
-  clothesCategory: state.formReducer.clothesCategory
-});
-
-const mapDispatchToProps = {
-  chooseClothesCategory
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ClothesCategoriesStep);
+export default ClothesCategoriesStep;
