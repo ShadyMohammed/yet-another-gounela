@@ -11,10 +11,6 @@ const ClothesCategoriesStep = ({
   style,
   chooseClothesCategory,
   clothesCategory,
-  pageNum,
-  pagesLength,
-  goNext,
-  goPrevious,
   setFieldValue
 }) => {
   const isValidStep = clothesCategory;
@@ -22,10 +18,6 @@ const ClothesCategoriesStep = ({
     <StepLayout
       style={style}
       title="عاوزة تفصلي ايه؟"
-      pageNum={pageNum}
-      pagesLength={pagesLength}
-      goNext={goNext}
-      goPrevious={goPrevious}
       isValidStep={isValidStep}
     >
       <Gallery

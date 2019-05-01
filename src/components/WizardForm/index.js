@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Formik, Form } from 'formik';
 import { useTransition } from 'react-spring';
@@ -6,13 +6,8 @@ import { Element as ScrollElement } from 'react-scroll';
 import { css } from 'styled-components/macro';
 import * as Yup from 'yup';
 
-import MeasurementsStep from './components/MeasurementsStep';
-import DesignStep from './components/DesignStep';
-import AddressStep from './components/AddressStep';
-// import ClothesCategoriesStep from './components/ClothesCategoriesStep';
-import TextureStep from './components/TextureStep';
-import ConfirmationStep from './components/ConfirmationStep';
 import { resetOrderFormReducer } from '../../redux/actions';
+import { usePage } from './context';
 
 const styledForm = css`
   min-height: 100vh;
@@ -56,15 +51,6 @@ const validationSchema = Yup.object({
   address: Yup.string().required('من فضلك دخلي العنوان')
 });
 
-const pages = [
-  // ClothesCategoriesStep,
-  DesignStep,
-  TextureStep,
-  MeasurementsStep,
-  AddressStep,
-  ConfirmationStep
-];
-
 const encode = data => {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
@@ -72,11 +58,7 @@ const encode = data => {
 };
 
 const WizardForm = ({ resetOrderFormReducer }) => {
-  const [pageNum, setPageNum] = useState(0);
-
-  const goNext = () => setPageNum(pageNum + 1);
-  const goPrevious = () => setPageNum(pageNum - 1);
-  const goToFirstStep = () => setPageNum(0);
+  const { pages, pageNum, setPageNum } = usePage();
 
   const transitions = useTransition(pageNum, p => p, {
     from: {
@@ -117,14 +99,7 @@ const WizardForm = ({ resetOrderFormReducer }) => {
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
-      render={({
-        errors,
-        status,
-        touched,
-        isSubmitting,
-        setFieldValue,
-        handleChange
-      }) => {
+      render={({ errors, touched, setFieldValue, handleChange }) => {
         return (
           <ScrollElement name="form">
             <Form css={styledForm} name="order" netlify>
@@ -138,11 +113,6 @@ const WizardForm = ({ resetOrderFormReducer }) => {
                     handleChange={handleChange}
                     key={key}
                     style={props}
-                    pageNum={pageNum}
-                    pagesLength={pages.length}
-                    goToFirstStep={goToFirstStep}
-                    goNext={goNext}
-                    goPrevious={goPrevious}
                   />
                 );
               })}

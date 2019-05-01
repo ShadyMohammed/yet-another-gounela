@@ -16,15 +16,7 @@ const fieldsWrapper = css`
   }
 `;
 
-const AddressStep = ({
-  style,
-  pageNum,
-  pagesLength,
-  goPrevious,
-  errors,
-  touched,
-  dirty
-}) => {
+const AddressStep = ({ style, errors, touched }) => {
   const isValidStep =
     touched.name &&
     touched.email &&
@@ -36,14 +28,7 @@ const AddressStep = ({
     !errors.address;
 
   return (
-    <StepLayout
-      style={style}
-      title="دخلي بياناتك"
-      pageNum={pageNum}
-      pagesLength={pagesLength}
-      goPrevious={goPrevious}
-      isValidStep={isValidStep}
-    >
+    <StepLayout style={style} title="دخلي بياناتك" isValidStep={isValidStep}>
       <div css={fieldsWrapper}>
         <FormField name="name" label="االإسم" component={InputField} />
         <FormField

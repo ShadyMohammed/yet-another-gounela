@@ -5,6 +5,7 @@ import { GlobalStyles } from './theme';
 import Header from './components/Header';
 import WizardForm from './components/WizardForm';
 import { theme } from './theme';
+import { PageProvider } from './components/WizardForm/context';
 
 const App = () => {
   return (
@@ -12,7 +13,9 @@ const App = () => {
       <div className="App">
         <GlobalStyles />
         <Header />
-        <WizardForm />
+        <PageProvider>
+          <WizardForm />
+        </PageProvider>
       </div>
     </ThemeProvider>
   );

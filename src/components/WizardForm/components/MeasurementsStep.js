@@ -12,18 +12,7 @@ const inputWrapper = css`
   flex-wrap: wrap;
 `;
 
-const MeasurementsStep = ({
-  style,
-  touched,
-  errors,
-  handleChange,
-  setIsValidStep,
-  goNext,
-  goPrevious,
-  pageNum,
-  pagesLength,
-  activeSkirt
-}) => {
+const MeasurementsStep = ({ style, touched, errors, activeSkirt }) => {
   const isValidStep =
     touched.height && touched.weight && !errors.height && !errors.weight;
 
@@ -31,11 +20,7 @@ const MeasurementsStep = ({
     <StepLayout
       style={style}
       title="اكتبي وزنك وطولك"
-      goNext={goNext}
-      goPrevious={goPrevious}
       isValidStep={isValidStep}
-      pageNum={pageNum}
-      pagesLength={pagesLength}
     >
       <div css={inputWrapper}>
         <FormField

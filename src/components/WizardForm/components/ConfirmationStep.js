@@ -60,25 +60,12 @@ const imgWrapper = css`
   }
 `;
 
-const ConfirmationStep = ({
-  skirts,
-  style,
-  pageNum,
-  pagesLength,
-  goToFirstStep
-}) => {
+const ConfirmationStep = ({ skirts, style }) => {
   const orderedModel = skirts.find(skirt => skirt.isActive);
   const modelFabric = orderedModel.fabrics.find(fabric => fabric.isActive);
   const orderPrice = modelFabric.price[orderedModel.name];
   return (
-    <StepLayout
-      style={style}
-      title="ملخص الأوردر"
-      pageNum={pageNum}
-      pagesLength={pagesLength}
-      goToFirstStep={goToFirstStep}
-      isValidStep
-    >
+    <StepLayout style={style} title="ملخص الأوردر" isValidStep>
       <div css={confirmationWrapper}>
         <div css={orderSummary}>
           <p>

@@ -4,6 +4,8 @@ import { animated as Animated } from 'react-spring';
 import { Link, Element } from 'react-scroll';
 import Button from '../../Button';
 
+import { usePage } from '../context';
+
 const stepLayout = css`
   display: flex;
   flex-direction: column;
@@ -38,56 +40,52 @@ const formActions = css`
   }
 `;
 
-const StepLayout = ({
-  children,
-  title,
-  style,
-  pageNum,
-  pagesLength,
-  onClick,
-  goToFirstStep,
-  goNext,
-  goPrevious,
-  isValidStep
-}) => (
-  <Element name="stepStart">
-    <Animated.div css={stepLayout} style={style}>
-      <h2 css={styledTitle}>{title}</h2>
-      {children}
-      <div css={formActions}>
-        {pageNum !== 0 && pageNum < pagesLength - 1 && (
-          <Link to="stepStart">
-            <Button inverted onClick={goPrevious}>
-              السابق
+const StepLayout = ({ children, title, style, isValidStep }) => {
+  const { pages, pageNum, setPageNum } = usePage();
+  const goPrevious = () => setPageNum(pageNum - 1);
+  const goNext = () => setPageNum(pageNum + 1);
+  const goToFirstStep = () => setPageNum(0);
+
+  return (
+    <Element name="stepStart">
+      <Animated.div css={stepLayout} style={style}>
+        <h2 css={styledTitle}>{title}</h2>
+        {children}
+        <div css={formActions}>
+          {pageNum !== 0 && pageNum < pages.length - 1 && (
+            <Link to="stepStart">
+              <Button inverted onClick={goPrevious}>
+                السابق
+              </Button>
+            </Link>
+          )}
+          {pageNum < pages.length - 2 && (
+            <Link to="stepStart">
+              <Button onClick={goNext} disabled={!isValidStep}>
+                التالي
+              </Button>
+            </Link>
+          )}
+          {pageNum === pages.length - 2 && (
+            <Button type="submit" disabled={!isValidStep}>
+              اطلبي دلوقتي
             </Button>
-          </Link>
-        )}
-        {pageNum < pagesLength - 2 && (
-          <Link to="stepStart">
-            <Button onClick={goNext} disabled={!isValidStep}>
-              التالي
-            </Button>
-          </Link>
-        )}
-        {pageNum === pagesLength - 2 && (
-          <Button type="submit" disabled={!isValidStep}>
-            اطلبي دلوقتي
-          </Button>
-        )}
-        {pageNum === pagesLength - 1 && (
-          <Link to="stepStart">
-            <Button
-              type="submit"
-              disabled={!isValidStep}
-              onClick={goToFirstStep}
-            >
-              عودة للصفحة الرئيسية
-            </Button>
-          </Link>
-        )}
-      </div>
-    </Animated.div>
-  </Element>
-);
+          )}
+          {pageNum === pages.length - 1 && (
+            <Link to="stepStart">
+              <Button
+                type="submit"
+                disabled={!isValidStep}
+                onClick={goToFirstStep}
+              >
+                عودة للصفحة الرئيسية
+              </Button>
+            </Link>
+          )}
+        </div>
+      </Animated.div>
+    </Element>
+  );
+};
 
 export default StepLayout;
