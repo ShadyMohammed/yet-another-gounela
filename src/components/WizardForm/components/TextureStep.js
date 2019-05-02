@@ -3,9 +3,11 @@ import Gallery from './Gallery';
 import StepLayout from './StepLayout';
 
 import { useDesignsContext, chooseFabric } from '../designsContext';
+import { usePage } from '../context';
 
 const TextureStep = ({ style, setFieldValue }) => {
   const [state, dispatch] = useDesignsContext();
+  const { pageNum, setPageNum } = usePage();
   const fabrics = state[state.clothesCategory].find(design => design.isActive)
     .fabrics;
 
@@ -17,6 +19,7 @@ const TextureStep = ({ style, setFieldValue }) => {
         onSelect={({ id, name }) => {
           dispatch(chooseFabric(id));
           setFieldValue('texture', name);
+          setPageNum(pageNum + 1);
         }}
       />
     </StepLayout>

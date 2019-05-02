@@ -5,9 +5,11 @@ import Gallery from './Gallery';
 import { clothesCategories } from '../../../designs';
 
 import { useDesignsContext, chooseClothesCategory } from '../designsContext';
+import { usePage } from '../context';
 
 const ClothesCategoriesStep = ({ style, setFieldValue }) => {
   const [state, dispatch] = useDesignsContext();
+  const { pageNum, setPageNum } = usePage();
   const isValidStep = state.clothesCategory;
   return (
     <StepLayout
@@ -18,8 +20,9 @@ const ClothesCategoriesStep = ({ style, setFieldValue }) => {
       <Gallery
         items={clothesCategories}
         onSelect={({ name }) => {
-          setFieldValue('clothesType', name);
           dispatch(chooseClothesCategory(name));
+          setFieldValue('clothesType', name);
+          setPageNum(pageNum + 1);
         }}
       />
     </StepLayout>
