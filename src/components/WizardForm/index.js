@@ -97,6 +97,7 @@ const WizardForm = ({ resetOrderFormReducer }) => {
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
+      validateOnChange
       render={({ errors, touched, setFieldValue, handleChange }) => {
         return (
           <ScrollElement name="form">

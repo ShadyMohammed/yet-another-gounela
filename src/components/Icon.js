@@ -1,11 +1,9 @@
 import React from 'react';
 
-import { ReactComponent as RightArrow } from '../icons/right-arrow.svg';
 import { ReactComponent as Facebook } from '../icons/facebook.svg';
 import { ReactComponent as Instagram } from '../icons/instagram.svg';
 
 const iconsMap = {
-  rightArrow: RightArrow,
   facebook: Facebook,
   instagram: Instagram
 };
