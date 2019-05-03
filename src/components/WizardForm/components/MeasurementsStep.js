@@ -12,11 +12,14 @@ const inputWrapper = css`
   flex-wrap: wrap;
 `;
 
-const MeasurementsStep = ({ style, touched, errors }) => {
+const MeasurementsStep = ({ initialValues, values, errors, style }) => {
   const [state] = useDesignsContext();
   const activeSkirt = state.skirts.find(skirt => skirt.isActive);
   const isValidStep =
-    touched.height && touched.weight && !errors.height && !errors.weight;
+    values.height !== initialValues.height &&
+    values.weight !== initialValues.weight &&
+    !errors.height &&
+    !errors.weight;
 
   return (
     <StepLayout

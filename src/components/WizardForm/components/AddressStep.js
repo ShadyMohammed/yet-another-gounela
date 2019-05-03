@@ -16,12 +16,12 @@ const fieldsWrapper = css`
   }
 `;
 
-const AddressStep = ({ style, errors, touched }) => {
+const AddressStep = ({ initialValues, values, style, errors }) => {
   const isValidStep =
-    touched.name &&
-    touched.email &&
-    touched.phone &&
-    touched.address &&
+    values.name !== initialValues.name &&
+    values.email !== initialValues.email &&
+    values.phone !== initialValues.phone &&
+    values.address !== initialValues.address &&
     !errors.name &&
     !errors.email &&
     !errors.phone &&
