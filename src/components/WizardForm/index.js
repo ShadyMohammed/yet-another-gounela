@@ -98,7 +98,14 @@ const WizardForm = ({ resetOrderFormReducer }) => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
       validateOnChange
-      render={({ errors, touched, setFieldValue, handleChange }) => {
+      render={({
+        initialValues,
+        values,
+        errors,
+        touched,
+        setFieldValue,
+        handleChange
+      }) => {
         return (
           <ScrollElement name="form">
             <Form css={styledForm} name="order" netlify>
@@ -106,6 +113,8 @@ const WizardForm = ({ resetOrderFormReducer }) => {
                 const RenderedComponent = pages[item];
                 return (
                   <RenderedComponent
+                    values={values}
+                    initialValues={initialValues}
                     setFieldValue={setFieldValue}
                     touched={touched}
                     errors={errors}
