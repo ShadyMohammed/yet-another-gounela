@@ -5,7 +5,7 @@ import Gallery from './Gallery';
 import { clothesCategories } from '../../../designs';
 
 import { useDesignsContext, chooseClothesCategory } from '../designsContext';
-import { usePage } from '../context';
+import { usePage } from '../stepContext';
 
 const ClothesCategoriesStep = ({ style, setFieldValue }) => {
   const [state, dispatch] = useDesignsContext();

@@ -3,7 +3,7 @@ import Gallery from './Gallery';
 import StepLayout from './StepLayout';
 
 import { useDesignsContext, chooseFabric } from '../designsContext';
-import { usePage } from '../context';
+import { usePage } from '../stepContext';
 
 const TextureStep = ({ style, setFieldValue }) => {
   const [state, dispatch] = useDesignsContext();

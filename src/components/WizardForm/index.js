@@ -5,7 +5,7 @@ import { Element as ScrollElement } from 'react-scroll';
 import { css } from 'styled-components/macro';
 import * as Yup from 'yup';
 
-import { usePage } from './context';
+import { usePage } from './stepContext';
 
 const styledForm = css`
   min-height: 100vh;
@@ -113,9 +113,8 @@ const WizardForm = ({ resetOrderFormReducer }) => {
                   <RenderedComponent
                     values={values}
                     initialValues={initialValues}
-                    setFieldValue={setFieldValue}
                     errors={errors}
-                    handleChange={handleChange}
+                    setFieldValue={setFieldValue}
                     key={key}
                     style={props}
                   />

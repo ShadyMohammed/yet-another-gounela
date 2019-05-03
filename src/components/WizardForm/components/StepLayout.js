@@ -4,7 +4,7 @@ import { animated as Animated } from 'react-spring';
 import { Link, Element } from 'react-scroll';
 import Button from '../../Button';
 
-import { usePage } from '../context';
+import { usePage } from '../stepContext';
 
 const stepLayout = css`
   display: flex;

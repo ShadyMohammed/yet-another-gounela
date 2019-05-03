@@ -3,7 +3,7 @@ import StepLayout from './StepLayout';
 import Gallery from './Gallery';
 
 import { useDesignsContext, chooseDesign } from '../designsContext';
-import { usePage } from '../context';
+import { usePage } from '../stepContext';
 
 const DesignStep = ({ style, clothesCategories, setFieldValue }) => {
   const { pageNum, setPageNum } = usePage();
