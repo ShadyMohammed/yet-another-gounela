@@ -5,7 +5,7 @@ import { GlobalStyles } from './theme';
 import Header from './components/Header';
 import WizardForm from './components/WizardForm';
 import { theme } from './theme';
-import { PageProvider } from './components/WizardForm/context';
+import { PageProvider } from './components/WizardForm/stepContext';
 import { TailorDesignsContextProvider } from './components/WizardForm/designsContext';
 
 const App = () => {
