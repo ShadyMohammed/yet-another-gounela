@@ -26,7 +26,7 @@ const {
   fab17
 } = fabrics;
 
-const plesyFabrics = [fab1, fab4, fab10];
+const plesyFabrics = [fab1, fab10];
 const pencilFabrics = [
   fab2,
   fab12,
